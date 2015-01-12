@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'social.apps.django_app.default',
     'PoolTable',
+    'PoolScores',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -48,6 +49,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -64,9 +66,12 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 AUTHENTICATION_BACKENDS = (
     'social.backends.open_id.OpenIdAuth',
-    'social.'
+    'social.backends.live.LiveOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
+
+SOCIAL_AUTH_LIVE_KEY = '000000004C135416'
+SOCIAL_AUTH_LIVE_SECRET = 'OokFTxWA1fgFIBUHkTSYm0KinyQAynKd'
 
 ROOT_URLCONF = 'PoolTable.urls'
 
@@ -101,3 +106,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_REDIRECT_URL = '/'
