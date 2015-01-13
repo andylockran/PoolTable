@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block main %}
+ <h2>Welcome</h2>
+
+ <p>
+   {% if user and not user.is_anonymous %}
+       <p>Hello {{ user.get_full_name|default:user.username }}!</p>
+   {% else %}
+     
+   {% endif %}
+ </p>
+
+{% endblock %}
+
+{% block jumbo %}
+{% endblock %}
+
+{% block maincontent %}
+<h3>Please enter your scores below:</h3>
+
+  <div class="row col-md-12">
+    Winner: <select></select>
+  </div>
+  <div class="row col-md-12">
+    Black potted prematurely?: <select><option value="1">Yes</option><option value="0">No</option></select>
+  </div>
+  <div class="row col-md-12">
+    How many balls left on the table?:
+    <select>
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+    </select>
+  <div class="row col-md-12">
+    <button>Submit Score</button>
+  </div>
+{% endblock %}

@@ -22,16 +22,25 @@ class Match(models.Model):
 	blackPottedPrematurelyBy = models.ForeignKey(User,related_name="blackpotter", null="True", blank="True")
 	winner=models.ForeignKey(User,related_name="Winner",null="True", blank="True")
 	ballsLeft = models.IntegerField(choices=BALLS_LEFT_CHOICES,blank="True",null="True")
-	approved = models.NullBooleanField(null="True", blank="True")
+	approvedB = models.NullBooleanField(null="True", blank="True")
+	approvedC = models.NullBooleanField(null="True", blank="True")
 	def __unicode__(self):
 		title = str(self.breakplayer) + str(self.challenger)
 		return title
 	class Meta:
 		verbose_name_plural = "Matches"
 
-
+class UserScore(models.Model):
+	user = models.OneToOneField(User, unique="True")
+	score = models.IntegerField()
+	def __unicode__(self):
+		return str(self.user)
 
 class MatchAdmin(admin.ModelAdmin):
 	pass
 
+class UserScoreAdmin(admin.ModelAdmin):
+	pass	
+
 admin.site.register(Match, MatchAdmin)
+admin.site.register(UserScore, UserScoreAdmin)

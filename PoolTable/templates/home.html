@@ -1,24 +1,28 @@
 {% extends 'base.html' %}
 
 {% block main %}
- <div>
- <h1>Third-party authentication demo</h1>
+ <h2>Welcome</h2>
 
  <p>
-   <ul>
    {% if user and not user.is_anonymous %}
-     <li>
-       <a>Hello {{ user.get_full_name|default:user.username }}!</a>
-     </li>
-     <li>
-       <a href="{% url 'auth:logout' %}?next={{ request.path }}">Logout</a>
-     </li>
+       <p>Hello {{ user.get_full_name|default:user.username }}!</p>
    {% else %}
-     <li>
-       <a href="{% url 'social:begin' 'live' %}?next={{ request.path }}">Login with Office365</a>
-     </li>
+     
    {% endif %}
-   </ul>
  </p>
- </div>
+
 {% endblock %}
+
+{% block jumbo %}
+{% endblock %}
+
+{% block maincontent %}
+<h3>Please enter your scores below:</h3>
+
+  <form action="/your-name/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+  </form>
+
+  {% endblock %}

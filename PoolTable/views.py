@@ -8,3 +8,11 @@ def home(request):
                             })
    return render_to_response('home.html',
                              context_instance=context)
+
+def score(request):
+   context = RequestContext(request,
+                           {'request': request,
+                            'user': request.user
+                            })
+   return render_to_response('score.html',
+                             context_instance=context)
