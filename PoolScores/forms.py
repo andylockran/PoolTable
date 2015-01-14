@@ -4,4 +4,4 @@ from PoolScores.models import Match
 class MatchInitiateForm(ModelForm):
 	class Meta:
 		model = Match
-		fields = ['breakplayer','challenger','date']
+		fields = ['breakPlayer','challenger','date']

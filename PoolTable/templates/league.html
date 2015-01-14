@@ -8,13 +8,13 @@
 {% block maincontent %}
 
 <h1>League Table</h1>
-<table>
+<table class="table table-striped table-hover">
 	<tr>
-		<th>Person</th><th>Points</th>
+		<th>Player</th><th>Break Wins</th><th>Challenge Wins</th><th>Games Played</th><th>Points</th>
 
 		{% for user in users %}
 		<tr>
-		<td>{{ user.user|capfirst}} </td>
+		<td>{{ user.username|capfirst}} </td>
 		<td> {{ user.score}}</td>
 		</tr>
 		{% endfor %}

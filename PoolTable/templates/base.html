@@ -25,9 +25,10 @@
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="/">Match</a></li>
-          <li><a href="/league">League</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="/">Match</a></li>
+          <li><a href="/score">ScoreEntry</a></li>
+          <li class="active"><a href="/results">Results</a></li>
+          <li><a href="/league">League Table</a></li>
           <li><a href="/admin">SuperAdmin</a>
           {% if user and not user.is_anonymous %}
             <li><a href="{% url 'auth:logout' %}?next={{ request.path }}">Logout</a></li>
@@ -40,17 +41,12 @@
       </div>
       
       {% block jumbo %}
-      <div class="jumbotron">
-        <h1>'Allo, 'Allo!</h1>
-        <p class="lead">Always a pleasure scaffolding your apps.</p>
-        <p><a class="btn btn-lg btn-success" href="#">Splendid! <span class="glyphicon glyphicon-ok"></span></a></p> 
-      </div>
       {% endblock jumbo %}
 
       {% block maincontent %}
 
       <div class="row marketing">
-        <div class="col-lg-6">
+        <div class="col-md-6">
           <h4>HTML5 Boilerplate</h4>
           <p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
 
@@ -63,7 +59,8 @@
         </div>
       </div>
       {% endblock %}
-      <div class="footer">
+
+      <div class="footer col-md-12">
         <p><span class="glyphicon glyphicon-heart"></span> from pool players across the world.</p>
       </div>
 

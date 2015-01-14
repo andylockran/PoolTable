@@ -5,5 +5,5 @@ urlpatterns = patterns('PoolLeague.views',
     # Examples:
     # url(r'^$', 'PoolTable.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-    url(r'^$', 'home', name='home'),
+    url(r'^$', 'leaguetable', name='leaguetable'),
 )

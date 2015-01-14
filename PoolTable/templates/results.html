@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+{% block jumbo %}
+<div class="jumbotron">
+<h2>Precedent Results List</h2>
+<p>If you want to report a result as wrong, please click the report button below</p>
+</div>
+{% endblock %}
+
+{% block maincontent %}
+<div class="row col-md-12">
+  <table class="table table-striped table-hover">
+    <tr>
+      <th>Date</th>
+      <th>Break</th>
+      <th>Challenger</th>
+      <th>Winner</th>
+      <th>Balls Left</th>
+      <th>Foul on Black?</th>
+    </tr>
+    {% for result in resultsList %}
+    <tr>
+      <td>{{ result.match.date }}</td>
+      <td>{{ result.match.breakPlayer|capfirst }}</td>
+      <td>{{ result.match.challenger|capfirst }}</td>
+      <td>{{ result.winner|capfirst }}</td>
+      <td>{{ result.ballsLeft }}</td>
+      <td>{{ result.foulOnBlack }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}
