@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
-from PoolScores.models import Match,UserScore
+from PoolScores.models import Match,Score
 from django.contrib.auth.models import User
 import pprint
 
@@ -10,7 +10,7 @@ def leaguetable(request):
 
    matches = Match.objects.all()
    userList = User.objects.all()
-   users = UserScore.objects.order_by('-score')
+   users = Score.objects.order_by('-score')
 
    pprint.pprint(users)
 
