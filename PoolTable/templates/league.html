@@ -10,14 +10,17 @@
 <h1>League Table</h1>
 <table class="table table-striped table-hover">
 	<tr>
-		<th>Player</th><th>Break Wins</th><th>Challenge Wins</th><th>Games Played</th><th>Points</th>
-
-		{% for user in users %}
+		<th>Position</th><th>Player</th><th>Points</th>
+	</tr>
+		{% for key,value in league %}
 		<tr>
-		<td>{{ user.username|capfirst}} </td>
-		<td> {{ user.score}}</td>
+			<td>{{value.1}}</td>
+			<td>{{key|capfirst}}</td>
+			<td>{{value.0 }}</td>
+
 		</tr>
 		{% endfor %}
+
 
 	</tr>
 </table>
